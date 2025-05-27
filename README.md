@@ -49,4 +49,6 @@ cd scripts
 python predict_energy.py -xyz dataset/ACET_ETOH.xyz -md ./models -m ACET -od ./examples --mlp -w 2
 ```
 
+Training set: [PDB-FRAGID](https://github.com/hnlab/PDB-FRAGID)  
+
 ## Citation
