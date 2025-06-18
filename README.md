@@ -36,21 +36,22 @@ zenodo_get 10.5281/zenodo.15514804 -g "[A-Z]*.tar.gz"
 tar -xzvf ./*.tar.gz
 ```
 - Run Energy Prediction Example:  
-**Note: Please refer to the corresponding model's README.md for applicable dimer.**
+**Note: Please refer to the corresponding model's `README.md` for applicable dimer.**
 
   - Basic (No Multiprocessing)  
  _in Windows/Jupyter environments where `multiprocessing.Pool` is unstable._
-```bash
-cd scripts
-python predict_energy.py -xyz dataset/ACET_ETOH.xyz -md ./models -m ACET -od ./examples
-```
+  ```bash
+  cd scripts
+  python predict_energy.py -xyz dataset/ACET_ETOH.xyz -md ./models -m ACET -od ./examples
+  ```
+
   - Parallel Accelerated  
 _Leverages `multiprocessing.Pool` for speedup on multicore systems._
-```bash
-cd scripts
-# 2 cores
-python predict_energy.py -xyz dataset/ACET_ETOH.xyz -md ./models -m ACET -od ./examples --mlp -w 2
-```
+  ```bash
+  cd scripts
+  # 2 cores
+  python predict_energy.py -xyz dataset/ACET_ETOH.xyz -md ./models -m ACET -od ./examples --mlp -w 2
+  ```
 
 Training set: [PDB-FRAGID](https://github.com/hnlab/PDB-FRAGID)  
 
