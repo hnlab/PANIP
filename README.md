@@ -6,8 +6,8 @@ Robust machine learning interatomic potentials (MLIPs) that achieve accuracy com
 ## Requirements
 wB97X-ML is built on NequIP, please install NequIP first.   
 - Python >= 3.9
-- [NequIP](https://github.com/mir-group/nequip) >=0.5.6
-- ASE (Atomic Simulation Environment)
+- [NequIP](https://github.com/mir-group/nequip/releases/tag/v0.5.6) == 0.5.6
+<!-- - ASE (Atomic Simulation Environment)  -->
 
 ### Quick Setup
 ```bash
@@ -18,8 +18,11 @@ conda activate nequip-env
 # Install PyTorch with CUDA 11.3 (adjust based on your driver)  
 conda install pytorch==1.11.0 cudatoolkit=11.3 -c pytorch
 
-# Install Nequip and dependencies  
-pip install nequip
+# Install Nequip 0.5.6 and dependencies  
+wget https://github.com/mir-group/nequip/archive/refs/tags/v0.5.6.tar.gz
+tar -xvzf v0.5.6.tar.gz
+cd nequip
+pip install . 
 ```
 
 ## Installation and usage
@@ -27,9 +30,9 @@ pip install nequip
 ```bash
 git clone git@github.com:hnlab/wB97X-ML.git
 cd models
-# data in zenodo is unpublished ?
-# pip install zenodo-get ?
-wget https://zenodo.org/record/<record_number>/files/<file_name>
+# download all models from https://zenodo.org/records/15514804
+pip install zenodo_get
+zenodo_get 10.5281/zenodo.15514804 -g "[A-Z]*.tar.gz"
 tar -xzvf ./*.tar.gz
 ```
 - Run Energy Prediction Example:  
