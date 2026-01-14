@@ -4,7 +4,7 @@
 ```bash
 # download all models from https://zenodo.org/records/15514804
 pip install zenodo_get
-zenodo_get 10.5281/zenodo.15514804 -g "[A-Z]*.tar.gz"
+zenodo_get 10.5281/zenodo.18213084
 tar -xzvf ./*.tar.gz
 # download specific model
 # for example, ACEM model ensemble

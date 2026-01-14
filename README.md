@@ -4,7 +4,7 @@ Robust machine learning interatomic potentials (MLIPs) that achieve accuracy com
 ---
 
 ## Requirements
-wB97X-ML is built on NequIP, please install NequIP first.   
+PANIP is built on NequIP, please install NequIP first.   
 - Python >= 3.9
 - [NequIP](https://github.com/mir-group/nequip/releases/tag/v0.5.6) == 0.5.6
 <!-- - ASE (Atomic Simulation Environment)  -->
@@ -28,11 +28,11 @@ pip install .
 ## Installation and usage
 - Download pretrained models.
 ```bash
-git clone git@github.com:hnlab/wB97X-ML.git
+git clone git@github.com:hnlab/PANIP.git
 cd models
 # download all models from https://zenodo.org/records/15514804
 pip install zenodo_get
-zenodo_get 10.5281/zenodo.15514804 -g "[A-Z]*.tar.gz"
+zenodo_get 10.5281/zenodo.18213084
 tar -xzvf ./*.tar.gz
 ```
 - Run Energy Prediction Example:  
@@ -42,7 +42,10 @@ tar -xzvf ./*.tar.gz
  _in Windows/Jupyter environments where `multiprocessing.Pool` is unstable._
   ```bash
   cd scripts
-  python predict_energy.py -xyz dataset/ACET_ETOH.xyz -md ./models -m ACET -od ./examples
+  # use global model
+  python predict_energy.py -xyz examples/ACET_ETOH.xyz -md ./models -m GLOBAL -od ./examples
+  # use sepecific model
+  python predict_energy.py -xyz examples/ACET_ETOH.xyz -md ./models/split_models -m ACET -od ./examples
   ```
 
   - Parallel Accelerated  
@@ -50,9 +53,10 @@ _Leverages `multiprocessing.Pool` for speedup on multicore systems._
   ```bash
   cd scripts
   # 2 cores
-  python predict_energy.py -xyz dataset/ACET_ETOH.xyz -md ./models -m ACET -od ./examples --mlp -w 2
+  python predict_energy.py -xyz examples/ACET_ETOH.xyz -md ./models/split_models -m ACET -od ./examples --mlp -w 2
   ```
 
 Training set: [PDB-FRAGID](https://github.com/hnlab/PDB-FRAGID)  
 
 ## Citation
+[Developing a Machine-Learning Interatomic Potential for Non-Covalent Interactions in Proteins](https://arxiv.org/submit/7154354/view)  

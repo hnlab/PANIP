@@ -7,6 +7,6 @@ structures and energy of
 
 can be download:  
 ```bash
-wget https://zenodo.org/record/15514804/files/benchmark_sets.tar.gz
+wget https://zenodo.org/record/18213084/files/benchmark_sets.tar.gz
 tar -xzvf benchmark_sets.tar.gz
 ```
