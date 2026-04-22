@@ -17,6 +17,7 @@ Install fullspace:
     git clone git@github.com:hnlab/fullspace.git
     cd fullspace
     python3 setup.py install --user
+    !! Notice: modify the function cart2orca in fullspace/tools.py with PANIP/scripts/tools_cart2orca.py if BSSE is considered.
 
 Test run:
     python Energy_Cal.py ~/PANIP/examples/ACEM_MIND.sdf -o qm_r2scan -qm r2scan
@@ -126,7 +127,6 @@ with Chem.SDMolSupplier(args.pairs, removeHs=False) as suppl:
         )
         mols.append(fb)
 
-# if BSSE is calculated, Pmodel will be added to fragment setting by tools.orca_runall() automatly\
 if args.qm_method == "r2scan":
     data = tools.orca_runall(
         mols=mols,
@@ -137,7 +137,6 @@ elif args.qm_method == "wb97x":
     data = tools.orca_runall(
         mols=mols,
         parse=True,
-        # setting="%pal nprocs  8 end\n! engrad wB97X-D3BJ  def2-TZVPP def2/J def2-TZVPP/C RIJCOSX\n"
         setting="! engrad wB97X-D3BJ  def2-TZVPP def2/J def2-TZVPP/C RIJCOSX\n"
     )
 
