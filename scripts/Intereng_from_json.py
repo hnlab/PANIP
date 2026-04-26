@@ -43,7 +43,7 @@ fraga_dict = {}
 fragb_dict = {}
 inter_energy_dict = {}
 flag = ""
-flag_num = 0
+flag_num = -1
 for i in qm_data:
     name = i["name"]
     if "energy" in i:
